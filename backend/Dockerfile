@@ -4,7 +4,7 @@ WORKDIR /src
 
 RUN apk add --no-cache git
 
-ARG GOPROXY=direct
+ARG GOPROXY=https://goproxy.cn,direct
 ARG GOSUMDB=off
 ENV GOPROXY=${GOPROXY}
 ENV GOSUMDB=${GOSUMDB}

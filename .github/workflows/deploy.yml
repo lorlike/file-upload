@@ -20,7 +20,7 @@ jobs:
 
       - name: Build backend image
         if: ${{ matrix.service == 'backend' }}
-        run: docker build -t file-upload-backend -f backend/Dockerfile backend
+        run: docker build --build-arg GOPROXY=https://goproxy.cn,direct --build-arg GOSUMDB=off -t file-upload-backend -f backend/Dockerfile backend
 
       - name: Build frontend image
         if: ${{ matrix.service == 'frontend' }}

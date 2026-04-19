@@ -13,6 +13,9 @@ services:
   backend:
     build:
       context: ./backend
+      args:
+        GOPROXY: https://goproxy.cn,direct
+        GOSUMDB: off
     container_name: file-upload-backend
     restart: unless-stopped
     depends_on:
