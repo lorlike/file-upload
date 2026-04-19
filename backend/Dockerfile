@@ -4,6 +4,11 @@ WORKDIR /src
 
 RUN apk add --no-cache git
 
+ARG GOPROXY=direct
+ARG GOSUMDB=off
+ENV GOPROXY=${GOPROXY}
+ENV GOSUMDB=${GOSUMDB}
+
 COPY go.mod go.sum ./
 RUN go mod download
 
