@@ -47,5 +47,11 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT }}
           SSH_USER: ${{ secrets.SSH_USER }}
           FILE_UPLOAD_DEPLOY_PATH: ${{ secrets.FILE_UPLOAD_DEPLOY_PATH }}
+          FILE_UPLOAD_ADMIN_PASSWORD: ${{ secrets.FILE_UPLOAD_ADMIN_PASSWORD }}
         run: |
-          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "cd '$FILE_UPLOAD_DEPLOY_PATH' && git pull --rebase && docker compose up -d --build"
+          if [ -z "$FILE_UPLOAD_ADMIN_PASSWORD" ]; then
+            echo "FILE_UPLOAD_ADMIN_PASSWORD secret is missing"
+            exit 1
+          fi
+          ADMIN_PASSWORD_ESCAPED=$(printf '%q' "$FILE_UPLOAD_ADMIN_PASSWORD")
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "cd '$FILE_UPLOAD_DEPLOY_PATH' && git pull --rebase && ADMIN_PASSWORD=$ADMIN_PASSWORD_ESCAPED docker compose up -d --build"

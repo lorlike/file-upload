@@ -29,7 +29,7 @@ services:
       MAX_UPLOAD_MB: 100
       CORS_ALLOWED_ORIGINS: http://localhost,http://127.0.0.1
       ADMIN_USERNAME: admin
-      ADMIN_PASSWORD: admin123456
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123456}
     volumes:
       - uploads:/data/uploads
 
