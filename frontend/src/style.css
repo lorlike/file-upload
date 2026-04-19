@@ -1,0 +1,352 @@
+:root {
+  font-family:
+    'Trebuchet MS', 'Segoe UI Variable Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: rgba(241, 245, 249, 0.96);
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.2), transparent 32%),
+    linear-gradient(135deg, #0b1220 0%, #0f172a 48%, #111827 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  min-width: 320px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 32px;
+}
+
+.ambient {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(60px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.ambient-a {
+  top: -120px;
+  left: -120px;
+  width: 280px;
+  height: 280px;
+  background: rgba(37, 99, 235, 0.18);
+}
+
+.ambient-b {
+  right: -100px;
+  bottom: -120px;
+  width: 320px;
+  height: 320px;
+  background: rgba(16, 185, 129, 0.18);
+}
+
+.workspace-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  background: rgba(10, 14, 28, 0.76);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 24px 70px rgba(3, 8, 20, 0.42);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+}
+
+.content-panel {
+  padding: 28px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  color: #93c5fd;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 8px;
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.subtle {
+  margin-top: 6px;
+  color: rgba(226, 232, 240, 0.68);
+  line-height: 1.6;
+}
+
+.session-pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  color: rgba(226, 232, 240, 0.8);
+  font-size: 13px;
+}
+
+.session-pill.active {
+  color: #86efac;
+  border-color: rgba(134, 239, 172, 0.2);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.auth-tabs {
+  margin-top: 12px;
+}
+
+.auth-form {
+  margin-top: 10px;
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.76);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.stat-card span {
+  color: rgba(226, 232, 240, 0.66);
+  font-size: 13px;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 26px;
+}
+
+.upload-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.86), rgba(7, 10, 21, 0.96));
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.upload-info strong {
+  font-size: 18px;
+}
+
+.upload-info p {
+  margin-top: 8px;
+  color: rgba(226, 232, 240, 0.72);
+}
+
+.file-input {
+  width: 100%;
+  margin-top: 16px;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.upload-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.picked-name {
+  color: rgba(226, 232, 240, 0.72);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.files-table {
+  margin-top: 22px;
+}
+
+.admin-shell {
+  margin-top: 8px;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  align-items: start;
+}
+
+.admin-sidebar,
+.admin-content {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.76);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.card-title-row h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.sidebar-table {
+  margin-top: 8px;
+}
+
+.sidebar-table .el-table__body tr.current-row > td {
+  background: rgba(59, 130, 246, 0.14) !important;
+}
+
+.is-selected-user > td {
+  background: rgba(59, 130, 246, 0.14) !important;
+}
+
+.sidebar-footer {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar-delete {
+  padding-left: 0;
+}
+
+.admin-summary {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-summary-item {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.76);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.admin-summary-item span {
+  display: block;
+  color: rgba(226, 232, 240, 0.66);
+  font-size: 12px;
+}
+
+.admin-summary-item strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.el-table,
+.el-table th,
+.el-table tr,
+.el-table td {
+  background: transparent !important;
+}
+
+.el-input__wrapper,
+.el-textarea__inner {
+  background: rgba(15, 23, 42, 0.85) !important;
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.16) inset !important;
+}
+
+.el-tabs__item {
+  color: rgba(226, 232, 240, 0.7) !important;
+}
+
+.el-tabs__item.is-active {
+  color: #60a5fa !important;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .app-header,
+  .panel-header,
+  .upload-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .session-pill {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,10 @@
+/.idea
+/.vscode
+/.DS_Store
+/.cache
+/AGENTS.md
+/backend/bin
+/frontend/dist
+/frontend/node_modules
+/backend/uploads
+/tmp
